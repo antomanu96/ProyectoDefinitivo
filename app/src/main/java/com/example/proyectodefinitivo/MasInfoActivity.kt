@@ -17,7 +17,7 @@ class MasInfoActivity : AppCompatActivity() {
     lateinit var binding:ActivityMasInfoBinding
     val BASE_URL="https://www.todomusica.org/"
 
-    //https://www.todomusica.org/the_killers/
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMasInfoBinding.inflate(layoutInflater)
@@ -28,7 +28,8 @@ class MasInfoActivity : AppCompatActivity() {
 
     private fun setListener() {
         binding.btnVolverMInfo.setOnClickListener {
-            startActivity(Intent(this,ActivityBuscarGruposBinding::class.java))
+            //startActivity(Intent(this,ActivityBuscarGruposBinding::class.java))
+            finish()
         }
     }
 
@@ -59,10 +60,10 @@ class MasInfoActivity : AppCompatActivity() {
         //activamos javascript, por defecto desactivado
         val settings = binding.webView.settings
         settings.javaScriptEnabled = true
-        //------
+
 
         //obtenemos el grupo buscado en el Active BusquedaGrupos y lo añadimos a la url
-        var budle =intent.extras
+
         var pref=Preferencias(this)
         var grupo=pref.leerNomGrupo()
 

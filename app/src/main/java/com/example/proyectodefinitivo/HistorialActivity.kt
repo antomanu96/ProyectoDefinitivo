@@ -30,7 +30,8 @@ class HistorialActivity : AppCompatActivity() {
 
     private fun setListener() {
         binding.btnVolverH.setOnClickListener {
-            startActivity(Intent(this,ActivityDos::class.java))
+            //startActivity(Intent(this,ActivityDos::class.java))
+            finish()
         }
     }
 

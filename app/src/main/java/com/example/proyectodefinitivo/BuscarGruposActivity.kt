@@ -2,6 +2,7 @@ package com.example.proyectodefinitivo
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -92,7 +93,8 @@ class BuscarGruposActivity: AppCompatActivity(){
 
     private fun setListener() {
         binding.btnVolver.setOnClickListener {
-            startActivity(Intent(this,ActivityDos::class.java))
+            //startActivity(Intent(this,ActivityDos::class.java))
+            finish()
         }
 
         binding.btnInfo.setOnClickListener {
@@ -108,6 +110,7 @@ class BuscarGruposActivity: AppCompatActivity(){
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 if(!p0.isNullOrEmpty()){
                     var busq=p0.lowercase()
+                    ocultarTeclado()
                     println("Busqueda----------------------------"+busq)
                     traerArtista(busq)
 
@@ -148,7 +151,7 @@ class BuscarGruposActivity: AppCompatActivity(){
     //metodo que utilizamos para subir la info de historial a nuestro firebase
     private fun crearHistorial(){
         nomGrupo=binding.tvNombre.text.toString().trim()
-        //nomGrupo="Marea"
+
         val pref=Preferencias(this)
         email=pref.leerEmail().toString()
 
@@ -166,6 +169,22 @@ class BuscarGruposActivity: AppCompatActivity(){
 
     }
 
+    private fun ocultarTeclado() {
+        val imn= getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imn.hideSoftInputFromWindow(binding.contrain.windowToken,0)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        var pref=Preferencias(this)
+        var busq=pref.leerNomGrupo()
+        if(busq!=null){
+            ocultarTeclado()
+            traerArtista(busq)
+
+        }
+
+    }
 
 }
 
