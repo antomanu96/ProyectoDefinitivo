@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ProyectoDefinitivo</string>
+
+    <string name="buscar">Busca tu grupo</string>
+    <string name="historial">Historial de Busqueda</string>
+    <string name="cerrarSesion">Cerrar Sesión</string>
+    <string name="salir">Salir</string>
+
+
+    <string name="volver">Volver</string>
+    <string name="valo">Valoraciones</string>
+    <string name="info">Más informacion</string>
+    <string name="nombre">Nombre</string>
+    <string name="estilo">Estilo</string>
+    <string name="genero">Género</string>
+    <string name="pais">Ciudad Origen</string>
+    <string name="anio">Año de Formación</string>
+    <string name="email">Email del usuario</string>
+
+
+</resources>
