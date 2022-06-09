@@ -11,8 +11,14 @@ class ValoracionesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityValoracionesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setListener()
     }
 
+    private fun setListener() {
+        binding.btnVolverValoraciones.setOnClickListener {
+            finish()
+        }
+    }
 
 
 }
