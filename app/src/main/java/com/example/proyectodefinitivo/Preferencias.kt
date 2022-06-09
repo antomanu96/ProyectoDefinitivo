@@ -24,5 +24,5 @@ class Preferencias(c:Context) {
         return storage.getString(NOMBREGRUPO,null)
     }
 
-  
+
 }

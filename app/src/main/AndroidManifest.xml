@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoDefinitivo">
         <activity
+            android:name=".recycledValoraciones.AniadirComentarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recycledValoraciones.ValoracionesActivity"
+            android:exported="false" />
+        <activity
             android:name=".HistorialActivity"
             android:exported="false" />
         <activity

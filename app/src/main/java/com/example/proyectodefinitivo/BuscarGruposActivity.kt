@@ -57,41 +57,38 @@ class BuscarGruposActivity: AppCompatActivity(){
                 .getDatos("$RESTO_URL$item")//para concatenar
             val datos=call.body()
             //para quitar las cabeceras de http tipicas
-            //a.runOnUiThread {
+            runOnUiThread {
                 if(call.isSuccessful){
-                    val array = datos?.grupo?: emptyArray()
-                    println("--------->" + array[0].toString())
-                    val artista = array[0]
+                    val grupo = datos?.grupo?: emptyArray()
+                    println("--------->" + grupo[0].toString())
 
-                    println("******ARTISTA******"+artista)
+                    println("******ARTISTA******"+grupo)
+                    if(grupo.size>0){
+                        binding.tvNombre.text=grupo[0].nombre
+                        binding.tvEstilo.text=grupo[0].estilo
+                        binding.tvGenero.text=grupo[0].genero
+                        binding.tvAniofun.text=grupo[0].anio
+                        binding.tvPais.text=grupo[0].pais
+                        Picasso.get().load(grupo[0].logo).into(binding.ivGrupo)
+                        Picasso.get().load(grupo[0].imagen).into(binding.ivLogo)
+                    }
 
                     //artistaList.add(artista)
-                    render(artista)
+                    //render(artista)
 
                     //TimeUnit.SECONDS.sleep(1L)
                 }
                 else{
                 //error()
                 }
-            //}
+            }
 
         }
     }
 
     //---------------------------------------------------------------------------------------
 
-    fun render(artista: DatosArtistas){
-        binding.tvNombre.text=artista.nombre
-        binding.tvEstilo.text=artista.estilo
-        binding.tvGenero.text=artista.genero
-        binding.tvAniofun.text=artista.anio
-        binding.tvPais.text=artista.pais
-        Picasso.get().load(artista.logo).into(binding.ivGrupo)
-        Picasso.get().load(artista.imagen).into(binding.ivLogo)
 
-    }
-
-    //---------------------------------------------------------------------------------------
 
     private fun setListener() {
         binding.btnVolver.setOnClickListener {
@@ -150,8 +147,8 @@ class BuscarGruposActivity: AppCompatActivity(){
 
     //metodo que utilizamos para subir la info de historial a nuestro firebase
     private fun crearHistorial(){
-        //nomGrupo=binding.tvNombre.text.toString().trim()
-        nomGrupo="Marea"
+        nomGrupo=binding.tvNombre.text.toString().trim()
+        //nomGrupo="Marea"
         val pref=Preferencias(this)
         email=pref.leerEmail().toString()
 
