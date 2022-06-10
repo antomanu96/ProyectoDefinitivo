@@ -2,11 +2,13 @@ package com.example.proyectodefinitivo.recycledValoraciones
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.proyectodefinitivo.Preferencias
 import com.example.proyectodefinitivo.R
 import com.example.proyectodefinitivo.databinding.ActivityAniadirComentarioBinding
 
 class AniadirComentarioActivity : AppCompatActivity() {
     lateinit var binding: ActivityAniadirComentarioBinding
+    lateinit var pref:Preferencias
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityAniadirComentarioBinding.inflate(layoutInflater)
@@ -25,4 +27,14 @@ class AniadirComentarioActivity : AppCompatActivity() {
             
         }
     }
+
+    private fun guardarComentario(){
+        pref= Preferencias(this)
+        var email=pref.leerEmail()
+        var comentario=binding.mtComentarioAniadir.text
+
+
+    }
+
+
 }
