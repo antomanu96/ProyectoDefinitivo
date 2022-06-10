@@ -6,7 +6,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyectodefinitivo.apiArtistas.ApiProvider
 import com.example.proyectodefinitivo.apiArtistas.ApiService
 import com.example.proyectodefinitivo.databinding.ActivityBuscarGruposBinding
 
@@ -20,7 +19,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 
 class BuscarGruposActivity: AppCompatActivity(){
     lateinit var binding: ActivityBuscarGruposBinding
@@ -61,10 +59,11 @@ class BuscarGruposActivity: AppCompatActivity(){
             runOnUiThread {
                 if(call.isSuccessful){
                     val grupo = datos?.grupo?: emptyArray()
-                    println("--------->" + grupo[0].toString())
 
-                    println("******ARTISTA******"+grupo)
                     if(grupo.size>0){
+                        //var pref=Preferencias(this)
+                            guardarNomGrupo(grupo[0].nombre)
+
                         binding.tvNombre.text=grupo[0].nombre
                         binding.tvEstilo.text=grupo[0].estilo
                         binding.tvGenero.text=grupo[0].genero
@@ -111,10 +110,10 @@ class BuscarGruposActivity: AppCompatActivity(){
                 if(!p0.isNullOrEmpty()){
                     var busq=p0.lowercase()
                     ocultarTeclado()
-                    println("Busqueda----------------------------"+busq)
+                    //println("Busqueda----------------------------"+busq)
                     traerArtista(busq)
 
-                    guardarNomGrupo(busq)
+                    //guardarNomGrupo(busq)
                     //intent.putExtra("busqueda",busq)
                     //putExtra("EMAIL",email)
                     crearHistorial()
@@ -150,9 +149,10 @@ class BuscarGruposActivity: AppCompatActivity(){
 
     //metodo que utilizamos para subir la info de historial a nuestro firebase
     private fun crearHistorial(){
-        nomGrupo=binding.tvNombre.text.toString().trim()
+        var pref=Preferencias(this)
+        nomGrupo=pref.leerNomGrupo().toString()
+        println(":::::::---------------------------------"+nomGrupo)
 
-        val pref=Preferencias(this)
         email=pref.leerEmail().toString()
 
 

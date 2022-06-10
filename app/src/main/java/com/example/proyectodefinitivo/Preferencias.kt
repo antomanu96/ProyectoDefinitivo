@@ -1,8 +1,9 @@
 package com.example.proyectodefinitivo
 
 import android.content.Context
+import kotlinx.coroutines.CoroutineScope
 
-class Preferencias(c:Context) {
+class Preferencias(c: Context) {
     val FIRE="fichero"
     val EMAIL="email"
     val NOMBREGRUPO="nomGrupo"

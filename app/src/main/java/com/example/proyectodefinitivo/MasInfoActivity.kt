@@ -1,7 +1,5 @@
 package com.example.proyectodefinitivo
 
-import android.R.string
-import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.webkit.WebChromeClient
