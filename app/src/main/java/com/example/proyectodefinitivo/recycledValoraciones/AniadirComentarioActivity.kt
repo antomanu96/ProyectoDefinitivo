@@ -11,5 +11,18 @@ class AniadirComentarioActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityAniadirComentarioBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setListener()
+    }
+
+    private fun setListener() {
+        binding.btnVolverAniadir.setOnClickListener {
+            finish()
+        }
+
+        binding.btnAniadir.setOnClickListener {
+            //boton para añadir comentario cuando este escrito
+            //tener en cuenta eso que este escrito el comentario
+            
+        }
     }
 }

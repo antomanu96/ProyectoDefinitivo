@@ -8,9 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectodefinitivo.apiArtistas.ApiService
 import com.example.proyectodefinitivo.databinding.ActivityBuscarGruposBinding
+import com.example.proyectodefinitivo.databinding.ValoracionesLayoutBinding
 
 
 import com.example.proyectodefinitivo.datos.DatosArtistas
+import com.example.proyectodefinitivo.recycledValoraciones.ValoracionesActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
@@ -102,7 +104,8 @@ class BuscarGruposActivity: AppCompatActivity(){
         }
 
         binding.btnValoraciones.setOnClickListener {
-
+            val intent=Intent(this, ValoracionesActivity::class.java)
+            startActivity(intent)
         }
 
         binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
