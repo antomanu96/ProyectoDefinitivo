@@ -8,9 +8,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_viewVal"
-        android:layout_width="408dp"
-        android:layout_height="540dp"
+        android:layout_width="393dp"
+        android:layout_height="478dp"
         android:layout_marginTop="33dp"
+        android:layout_marginBottom="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_volverValoraciones"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />

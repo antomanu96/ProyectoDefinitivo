@@ -63,9 +63,11 @@ class MasInfoActivity : AppCompatActivity() {
         //obtenemos el grupo buscado en el Active BusquedaGrupos y lo añadimos a la url
 
         var pref=Preferencias(this)
-        var grupo=pref.leerNomGrupo()
+        var grupo=pref.leerNomGrupo().toString().lowercase()
+
 
         grupo=funcionReemplazarEspacios(grupo)
+        println("-----------------------------"+grupo)
 
         binding.webView.loadUrl("$BASE_URL$grupo/")
         println("$BASE_URL$grupo/")

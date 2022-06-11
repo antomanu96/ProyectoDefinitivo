@@ -7,7 +7,9 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectodefinitivo.databinding.ActivityHistorialBinding
 import com.example.proyectodefinitivo.databinding.ActivityMasInfoBinding
+import com.example.proyectodefinitivo.recycled.DatosBuscados
 import com.example.proyectodefinitivo.recycled.HistorialAdapter
+import com.example.proyectodefinitivo.recycledValoraciones.DatosValoraciones
 import com.google.firebase.database.*
 
 class HistorialActivity : AppCompatActivity() {

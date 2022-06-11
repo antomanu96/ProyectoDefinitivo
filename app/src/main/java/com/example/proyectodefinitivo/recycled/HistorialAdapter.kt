@@ -3,8 +3,8 @@ package com.example.proyectodefinitivo.recycled
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectodefinitivo.DatosBuscados
 import com.example.proyectodefinitivo.R
+import com.example.proyectodefinitivo.recycledValoraciones.DatosValoraciones
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 

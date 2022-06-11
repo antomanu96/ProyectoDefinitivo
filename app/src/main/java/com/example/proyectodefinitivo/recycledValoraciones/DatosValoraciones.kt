@@ -4,7 +4,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 import java.io.Serializable
 
 @IgnoreExtraProperties
-data class DatosValoraciones(var comentario:String?=null,var email:String?=null
+data class DatosValoraciones(var email:String?=null,var comentario:String?=null
 ):Serializable {
 
 

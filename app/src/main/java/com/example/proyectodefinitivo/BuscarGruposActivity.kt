@@ -12,6 +12,8 @@ import com.example.proyectodefinitivo.databinding.ValoracionesLayoutBinding
 
 
 import com.example.proyectodefinitivo.datos.DatosArtistas
+import com.example.proyectodefinitivo.recycled.DatosBuscados
+import com.example.proyectodefinitivo.recycledValoraciones.DatosValoraciones
 import com.example.proyectodefinitivo.recycledValoraciones.ValoracionesActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -63,9 +65,7 @@ class BuscarGruposActivity: AppCompatActivity(){
                     val grupo = datos?.grupo?: emptyArray()
 
                     if(grupo.size>0){
-                        //var pref=Preferencias(this)
-                            guardarNomGrupo(grupo[0].nombre)
-
+                        guardarNomGrupo(grupo[0].nombre)
                         binding.tvNombre.text=grupo[0].nombre
                         binding.tvEstilo.text=grupo[0].estilo
                         binding.tvGenero.text=grupo[0].genero
@@ -75,10 +75,7 @@ class BuscarGruposActivity: AppCompatActivity(){
                         Picasso.get().load(grupo[0].imagen).into(binding.ivLogo)
                     }
 
-                    //artistaList.add(artista)
-                    //render(artista)
 
-                    //TimeUnit.SECONDS.sleep(1L)
                 }
                 else{
                 //error()
@@ -113,10 +110,11 @@ class BuscarGruposActivity: AppCompatActivity(){
                 if(!p0.isNullOrEmpty()){
                     var busq=p0.lowercase()
                     ocultarTeclado()
-                    //println("Busqueda----------------------------"+busq)
+                    println("Busqueda----------------------------"+busq)
+
                     traerArtista(busq)
 
-                    //guardarNomGrupo(busq)
+                    //guardarNomGrupo()
                     //intent.putExtra("busqueda",busq)
                     //putExtra("EMAIL",email)
                     crearHistorial()
