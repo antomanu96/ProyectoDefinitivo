@@ -136,9 +136,7 @@ class BuscarGruposActivity: AppCompatActivity(){
                      traerArtista(busq)
                     },2000)
 
-                    //guardarNomGrupo()
-                    //intent.putExtra("busqueda",busq)
-                    //putExtra("EMAIL",email)
+
                     crearHistorial()
                 }
                 return true
@@ -146,6 +144,7 @@ class BuscarGruposActivity: AppCompatActivity(){
 
             //Cada vez q el usuario haga un cambio en el buscado se llama a este metodo
             override fun onQueryTextChange(p0: String?): Boolean {
+                //crearHistorial()
                 return true
             }
 

@@ -65,11 +65,13 @@ class ActivityDos : AppCompatActivity() {
 
 
     private fun salir() {
+        prefs.borrarTodo()
         finishAffinity()
         System.exit(0)
     }
 
     private fun cerrarSesion() {
+        prefs.borrarTodo()
         FirebaseAuth.getInstance().signOut()
         val i = Intent(applicationContext, MainActivity::class.java)
         startActivity(i)
