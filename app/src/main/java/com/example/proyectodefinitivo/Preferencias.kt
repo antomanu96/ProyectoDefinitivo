@@ -25,5 +25,10 @@ class Preferencias(c: Context) {
         return storage.getString(NOMBREGRUPO,null)
     }
 
+    public fun borrarTodo(){
+        storage.edit().clear().apply()
+    }
+
+
 
 }

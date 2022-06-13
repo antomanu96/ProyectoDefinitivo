@@ -42,8 +42,8 @@ class AniadirComentarioActivity : AppCompatActivity() {
         //comentario= binding.mtComentarioAniadir.text.toString()
         if(!comprobarCampo())return
         db= FirebaseDatabase.getInstance("https://proyectofinal-de3bf-default-rtdb.europe-west1.firebasedatabase.app/")
-        var datosValoraciones=DatosValoraciones(email,comentario)
-        reference=db.getReference("comentarios").child(pref.leerNomGrupo().toString())
+        var datosValoraciones=DatosValoraciones(email,comentario,pref.leerNomGrupo().toString())
+        reference=db.getReference("comentarios")
         reference.push().setValue(datosValoraciones).addOnSuccessListener {
             limpiar()
         }.addOnFailureListener {

@@ -26,7 +26,6 @@ class MasInfoActivity : AppCompatActivity() {
 
     private fun setListener() {
         binding.btnVolverMInfo.setOnClickListener {
-            //startActivity(Intent(this,ActivityBuscarGruposBinding::class.java))
             finish()
         }
     }

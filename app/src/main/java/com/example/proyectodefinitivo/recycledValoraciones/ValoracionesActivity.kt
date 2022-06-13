@@ -1,5 +1,6 @@
 package com.example.proyectodefinitivo.recycledValoraciones
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import com.example.proyectodefinitivo.databinding.ActivityValoracionesBinding
 import com.google.firebase.database.*
 
 class ValoracionesActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityValoracionesBinding
 
     lateinit var pref: Preferencias
@@ -16,6 +18,7 @@ class ValoracionesActivity : AppCompatActivity() {
     private lateinit var reference: DatabaseReference
     var coment=""
     var emailC=""
+    var nomGrupo=""
     var lista= mutableListOf<DatosValoraciones>()
 
 
@@ -24,6 +27,7 @@ class ValoracionesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityValoracionesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        pref= Preferencias(this)
         setListener()
         setRecycled()
         traerComentario()
@@ -51,7 +55,7 @@ class ValoracionesActivity : AppCompatActivity() {
 
     fun traerComentario(){
         db= FirebaseDatabase.getInstance("https://proyectofinal-de3bf-default-rtdb.europe-west1.firebasedatabase.app/")
-        //nomGruo=pref.leerNomGrupo().toString()
+        var nomGrupoBuscado = pref.leerNomGrupo().toString()
         //println("-----------------------------"+nomGruo)
         reference= db.getReference("comentarios")
             //.push().child(pref.leerNomGrupo().toString())
@@ -65,17 +69,19 @@ class ValoracionesActivity : AppCompatActivity() {
                     for (item in snapshot.children){
                         //val comentararios=item.getValue(DatosValoraciones)
                         //var datosValoraciones=DatosValoraciones(email,comentario)
-                        emailC=item.child("email").getValue().toString()
-                        coment=item.child("comentario").getValue().toString()
-                        var comentarios=DatosValoraciones(emailC, coment)
-                        //val comentarios=item.getValue(DatosValoraciones::class.java)
+
+                        //emailC=item.child("email").getValue().toString()
+                        //coment=item.child("comentario").getValue().toString()
+                        //var comentarios=DatosValoraciones(emailC, coment)
+                        val comentarios=item.getValue(DatosValoraciones::class.java)
                         if (comentarios != null) {
                             print("email---------"+emailC)
                             print("comentario--------"+coment)
                         }
 
                         if (comentarios!=null){
-                            lista.add(comentarios)
+                            if(comentarios.nomGrupo.equals(nomGrupoBuscado))
+                                lista.add(comentarios)
                         }
                     }
                     setRecycled()
