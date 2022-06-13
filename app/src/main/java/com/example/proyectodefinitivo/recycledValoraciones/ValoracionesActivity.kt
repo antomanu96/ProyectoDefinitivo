@@ -14,7 +14,10 @@ class ValoracionesActivity : AppCompatActivity() {
     lateinit var pref: Preferencias
     private lateinit var db: FirebaseDatabase
     private lateinit var reference: DatabaseReference
+    var coment=""
+    var emailC=""
     var lista= mutableListOf<DatosValoraciones>()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,13 +51,29 @@ class ValoracionesActivity : AppCompatActivity() {
 
     fun traerComentario(){
         db= FirebaseDatabase.getInstance("https://proyectofinal-de3bf-default-rtdb.europe-west1.firebasedatabase.app/")
-        reference=db.getReference("comentarios")
+        //nomGruo=pref.leerNomGrupo().toString()
+        //println("-----------------------------"+nomGruo)
+        reference= db.getReference("comentarios")
+            //.push().child(pref.leerNomGrupo().toString())
+            //.child(pref.leerNomGrupo().toString())
+
+
         reference.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 lista.clear()
                 if(snapshot.exists()){
                     for (item in snapshot.children){
-                        val comentarios=item.getValue(DatosValoraciones::class.java)
+                        //val comentararios=item.getValue(DatosValoraciones)
+                        //var datosValoraciones=DatosValoraciones(email,comentario)
+                        emailC=item.child("email").getValue().toString()
+                        coment=item.child("comentario").getValue().toString()
+                        var comentarios=DatosValoraciones(emailC, coment)
+                        //val comentarios=item.getValue(DatosValoraciones::class.java)
+                        if (comentarios != null) {
+                            print("email---------"+emailC)
+                            print("comentario--------"+coment)
+                        }
+
                         if (comentarios!=null){
                             lista.add(comentarios)
                         }

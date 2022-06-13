@@ -2,10 +2,14 @@ package com.example.proyectodefinitivo
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.proyectodefinitivo.apiArtistas.ApiService
 import com.example.proyectodefinitivo.databinding.ActivityBuscarGruposBinding
 import com.example.proyectodefinitivo.databinding.ValoracionesLayoutBinding
@@ -30,6 +34,7 @@ class BuscarGruposActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding=ActivityBuscarGruposBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setListener()
     }
 
@@ -63,6 +68,22 @@ class BuscarGruposActivity: AppCompatActivity(){
             runOnUiThread {
                 if(call.isSuccessful){
                     val grupo = datos?.grupo?: emptyArray()
+
+
+
+
+                    binding.textView.visibility=View.VISIBLE
+                    binding.textView2.visibility=View.VISIBLE
+                    binding.textView3.visibility=View.VISIBLE
+                    binding.textView4.visibility=View.VISIBLE
+                    binding.textView9.visibility=View.VISIBLE
+
+
+                    binding.tvNombre.visibility=View.VISIBLE
+                    binding.tvEstilo.visibility=View.VISIBLE
+                    binding.tvGenero.visibility=View.VISIBLE
+                    binding.tvAniofun.visibility=View.VISIBLE
+                    binding.tvPais.visibility=View.VISIBLE
 
                     if(grupo.size>0){
                         guardarNomGrupo(grupo[0].nombre)
@@ -111,8 +132,9 @@ class BuscarGruposActivity: AppCompatActivity(){
                     var busq=p0.lowercase()
                     ocultarTeclado()
                     println("Busqueda----------------------------"+busq)
-
-                    traerArtista(busq)
+                    Handler(Looper.getMainLooper()).postDelayed({
+                     traerArtista(busq)
+                    },2000)
 
                     //guardarNomGrupo()
                     //intent.putExtra("busqueda",busq)

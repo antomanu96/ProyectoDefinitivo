@@ -43,8 +43,8 @@ class AniadirComentarioActivity : AppCompatActivity() {
         if(!comprobarCampo())return
         db= FirebaseDatabase.getInstance("https://proyectofinal-de3bf-default-rtdb.europe-west1.firebasedatabase.app/")
         var datosValoraciones=DatosValoraciones(email,comentario)
-        reference=db.getReference("comentarios")
-        reference.child(pref.leerNomGrupo().toString()).setValue(datosValoraciones).addOnSuccessListener {
+        reference=db.getReference("comentarios").child(pref.leerNomGrupo().toString())
+        reference.push().setValue(datosValoraciones).addOnSuccessListener {
             limpiar()
         }.addOnFailureListener {
             Toast.makeText(this,"ERROR-----------------------", Toast.LENGTH_LONG).show()
@@ -73,3 +73,5 @@ class AniadirComentarioActivity : AppCompatActivity() {
 
 
 }
+
+

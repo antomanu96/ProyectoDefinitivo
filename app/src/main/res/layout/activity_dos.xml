@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#81D4FA"
+    android:background="@drawable/img"
     tools:context=".ActivityDos">
 
     <Button
@@ -22,11 +22,11 @@
         android:id="@+id/btn_historial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="108dp"
         android:backgroundTint="#9575CD"
         android:text="@string/historial"
         app:layout_constraintEnd_toEndOf="@+id/bn_buscar"
-        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="@+id/bn_buscar"
         app:layout_constraintTop_toBottomOf="@+id/bn_buscar" />
 
