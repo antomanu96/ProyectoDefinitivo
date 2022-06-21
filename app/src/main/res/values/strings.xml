@@ -6,6 +6,7 @@
     <string name="cerrarSesion">Cerrar Sesión</string>
     <string name="valoraciones">Comentarios Usuario</string>
     <string name="hacerValoracion">Añadir comentario</string>
+    <string name="chat">Chat</string>
 
 
     <string name="salir">Salir</string>
@@ -21,8 +22,6 @@
     <string name="anio">Año de Formación</string>
     <string name="email">Email del usuario</string>
     <string name="comentario">Comentario</string>
-
-
 
 
 </resources>

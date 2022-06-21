@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoDefinitivo">
         <activity
+            android:name=".recycledChat.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".recycledValoraciones.AniadirComentarioActivity"
             android:exported="false" />
         <activity
