@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/cambiarFoto"
+
+        android:title="@string/cambiarFoto" />
+
+    <item
+        android:id="@+id/volverChat"
+
+        android:title="@string/volver" />
+
+
+
+
+
+
+</menu>

@@ -107,25 +107,13 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_grupo" />
 
     <Button
-        android:id="@+id/btn_volver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFCC80"
-        android:text="@string/volver"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_valoraciones"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_valoraciones"
-        app:layout_constraintTop_toTopOf="@+id/btn_valoraciones" />
-
-    <Button
         android:id="@+id/btn_valoraciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFAB91"
         android:text="@string/valo"
         app:layout_constraintBottom_toBottomOf="@+id/btn_info"
-        app:layout_constraintEnd_toStartOf="@+id/btn_volver"
+        app:layout_constraintEnd_toStartOf="@+id/btn_volverBuscar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_info"
         app:layout_constraintTop_toTopOf="@+id/btn_info" />
@@ -200,6 +188,18 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_pais" />
+
+    <Button
+        android:id="@+id/btn_volverBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#9575CD"
+        android:text="@string/volver"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_valoraciones"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_valoraciones"
+        app:layout_constraintTop_toTopOf="@+id/btn_valoraciones" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

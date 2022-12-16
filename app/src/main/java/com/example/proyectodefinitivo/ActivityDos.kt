@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectodefinitivo.databinding.ActivityDosBinding
+import com.example.proyectodefinitivo.recycledChat.ChatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -51,6 +52,11 @@ class ActivityDos : AppCompatActivity() {
         }
         binding.btnHistorial.setOnClickListener {
             var intent=Intent(this,HistorialActivity::class.java)
+            startActivity(intent)
+        }
+        
+        binding.btnChat.setOnClickListener {
+            var intent=Intent(this,ChatActivity::class.java)
             startActivity(intent)
         }
     }

@@ -13,6 +13,7 @@ import com.example.proyectodefinitivo.databinding.ActivityMasInfoBinding
 
 class MasInfoActivity : AppCompatActivity() {
     lateinit var binding:ActivityMasInfoBinding
+    //url
     val BASE_URL="https://www.todomusica.org/"
 
 

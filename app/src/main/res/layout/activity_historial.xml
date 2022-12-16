@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#81C784"
     tools:context=".HistorialActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="41dp"
         android:text="@string/historial"
-        android:textColor="#0277BD"
+        android:textColor="#020202"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

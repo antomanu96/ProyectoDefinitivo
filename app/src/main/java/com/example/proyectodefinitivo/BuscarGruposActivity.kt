@@ -39,8 +39,8 @@ class BuscarGruposActivity: AppCompatActivity(){
     }
 
     val BASE_URL="https://www.theaudiodb.com/"
-    val RESTO_URL="api/v1/json/2/search.php?s="
-    val artistaList= mutableListOf<DatosArtistas>()
+    val RESTO_URL="api/v1/json/523532/search.php?s="
+    //val artistaList= mutableListOf<DatosArtistas>()
     //----------------------------------
     private lateinit var db: FirebaseDatabase
     private lateinit var reference: DatabaseReference
@@ -69,9 +69,6 @@ class BuscarGruposActivity: AppCompatActivity(){
                 if(call.isSuccessful){
                     val grupo = datos?.grupo?: emptyArray()
 
-
-
-
                     binding.textView.visibility=View.VISIBLE
                     binding.textView2.visibility=View.VISIBLE
                     binding.textView3.visibility=View.VISIBLE
@@ -86,6 +83,7 @@ class BuscarGruposActivity: AppCompatActivity(){
                     binding.tvPais.visibility=View.VISIBLE
 
                     if(grupo.size>0){
+                        println("nombre antes de guardar____......._____ "+grupo[0].nombre)
                         guardarNomGrupo(grupo[0].nombre)
                         binding.tvNombre.text=grupo[0].nombre
                         binding.tvEstilo.text=grupo[0].estilo
@@ -111,7 +109,7 @@ class BuscarGruposActivity: AppCompatActivity(){
 
 
     private fun setListener() {
-        binding.btnVolver.setOnClickListener {
+        binding.btnVolverBuscar.setOnClickListener {
             //startActivity(Intent(this,ActivityDos::class.java))
             finish()
         }
@@ -132,6 +130,7 @@ class BuscarGruposActivity: AppCompatActivity(){
                     var busq=p0.lowercase()
                     ocultarTeclado()
                     println("Busqueda----------------------------"+busq)
+                    guardarNomGrupo(busq)
                     Handler(Looper.getMainLooper()).postDelayed({
                      traerArtista(busq)
                     },2000)
@@ -173,6 +172,8 @@ class BuscarGruposActivity: AppCompatActivity(){
     private fun crearHistorial(){
         var pref=Preferencias(this)
         nomGrupo=pref.leerNomGrupo().toString()
+
+
         println(":::::::---------------------------------"+nomGrupo)
 
         email=pref.leerEmail().toString()
