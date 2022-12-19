@@ -25,7 +25,7 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        title="Chat"
+        title="Tu Musica"
         cogerGuardarEmail()
         initDb()
         setlistener()

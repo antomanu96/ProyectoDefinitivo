@@ -21,6 +21,7 @@ class ActivityDos : AppCompatActivity() {
         prefs= Preferencias(this)
         cogarGuardarEmail()
         setListener()
+        title="Tu Musica"
 
     }
 

@@ -21,6 +21,7 @@ class AniadirComentarioActivity : AppCompatActivity() {
         binding= ActivityAniadirComentarioBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setListener()
+        title="Tu Musica"
     }
 
     private fun setListener() {

@@ -28,6 +28,7 @@ class HistorialActivity : AppCompatActivity() {
         setRecycler()
         traerArticulos()
         setListener()
+        title="Tu Musica"
     }
 
     private fun setListener() {

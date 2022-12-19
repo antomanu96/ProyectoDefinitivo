@@ -34,7 +34,7 @@ class BuscarGruposActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding=ActivityBuscarGruposBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        title="Tu Musica"
         setListener()
     }
 

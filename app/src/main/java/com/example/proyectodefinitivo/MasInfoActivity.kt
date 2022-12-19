@@ -23,6 +23,7 @@ class MasInfoActivity : AppCompatActivity() {
         setContentView(binding.root)
         setWebView()
         setListener()
+        title="Tu Musica"
     }
 
     private fun setListener() {
